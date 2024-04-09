@@ -1,8 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: "put your base name",
-  plugins: [react()],
-})
+  plugins: [react(), svgr()],
+  resolve: {
+    alias: {
+      src: "/src",
+      components: "/components",
+      pages: "/src/pages",
+      assets: "/src/assets"
+    }
+  },
+  base: 'react-vite-template',
+});
